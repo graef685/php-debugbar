@@ -23,7 +23,7 @@
     ],
     "require": {
         "php": "^7.1|^8",
-        "psr/log": "^1.0",
+        "graef685/log": "^1.0",
         "symfony/var-dumper": "^2.8.52"
     },
     "require-dev": {
