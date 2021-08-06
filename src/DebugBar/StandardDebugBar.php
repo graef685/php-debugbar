@@ -22,6 +22,8 @@ use DebugBar\DataCollector\TimeDataCollector;
  */
 class StandardDebugBar extends DebugBar
 {
+     protected static $instance;
+
     public function __construct()
     {
         $this->addCollector(new PhpInfoCollector());
@@ -30,5 +32,17 @@ class StandardDebugBar extends DebugBar
         $this->addCollector(new TimeDataCollector());
         $this->addCollector(new MemoryCollector());
         $this->addCollector(new ExceptionsCollector());
+    }
+
+    /**
+     * class instance
+     *
+     * @return StandardDebugBar
+     */
+    public static function get_instance(){
+        if(!self::$instance instanceof StandardDebugBar){
+            self::$instance = new StandardDebugBar();
+        }
+        return self::$instance;
     }
 }
